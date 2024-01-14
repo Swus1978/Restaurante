@@ -35,7 +35,6 @@
                     <a class="nav-item nav-link" href="#">Cerrar sesion</a>
                 </div>
             </nav>
-            
         </header>
         <main></main>
         <footer>
