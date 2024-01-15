@@ -6,8 +6,9 @@ $password = "";
 
 try {
     $conexion = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $password);
-    echo "Conexion establecida";
-} catch (Exception $error) {
-    echo $error->getMessage();
-}
 
+    $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $error) {
+    echo "Error de conexión: " . $error->getMessage();
+}
+?>

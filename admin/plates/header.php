@@ -1,5 +1,5 @@
 <?php
-$url_base="http://localhost:3000/admin";
+$url_base="http://localhost:3000/admin/seccion";
 ?>
 
 <!doctype html>

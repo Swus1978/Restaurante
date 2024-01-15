@@ -1,40 +1,20 @@
 <?php
-
 include("../../plates/bd.php");
 
-$sentencia=$conexion->prepare("SELECT * FROM `tbl_banners`");
-$sentencia ->execute();
-$lista_banners = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
-print_r($lista_banners);
+$sentencia = $conexion->prepare("SELECT * FROM `tbl_banners`");
+$sentencia->execute();
+$lista_banners = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 include("../../plates/header.php");
-
 ?>
-
-
-
-
 
 <div class="card">
     <div class="card-header">
-        <a
-            name=""
-            id=""
-            class="btn btn-primary"
-            href="crear.php"
-            role="button"
-            >Agregar registros</a
-        >
-
-
+        <a name="" id="" class="btn btn-primary" href="crear.php" role="button">Agregar registros</a>
     </div>
     <div class="card-body">
-        <div
-            class="table-responsive-sm"
-        >
-            <table
-                class="table table-primary"
-            >
+        <div class="table-responsive-sm">
+            <table class="table table-primary">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -45,62 +25,23 @@ include("../../plates/header.php");
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="">
-                        <td scope="row">1</td>
-                        <td>La Borincana</td>
-                        <td>Restaurante del mejor sabor casero</td>
-                        <td>#menu</td>
-                        <td>
-                            <a
-                                name=""
-                                id=""
-                                class="btn btn-info"
-                                href="editar.php"
-                                role="button"
-                                >Editar</a
-                            >
-                            <a
-                                name=""
-                                id=""
-                                class="btn btn-danger"
-                                href="#"
-                                role="button"
-                                >Borrar</a
-                            >
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <td scope="row">2</td>
-                        <td>La Borincana</td>
-                        <td>Restaurante del mejor sabor casero</td>
-                        <td>#menu</td>
-                        <td>
-                        <a
-                                name=""
-                                id=""
-                                class="btn btn-info"
-                                href="#"
-                                role="button"
-                                >Editar</a
-                            >
-                            <a
-                                name=""
-                                id=""
-                                class="btn btn-danger"
-                                href="#"
-                                role="button"
-                                >Borrar</a
-                            >
-
-                        </td>
-                    </tr>
+                    <?php foreach ($lista_banners as $banner): ?>
+                        <tr>
+                            <td scope="row"><?php echo $banner['ID']; ?></td>
+                            <td><?php echo $banner['titulo']; ?></td>
+                            <td><?php echo $banner['descripcion']; ?></td>
+                            <td><?php echo $banner['link']; ?></td>
+                            <td>
+                                <a name="" id="" class="btn btn-info" href="editar.php" role="button">Editar</a>
+                                <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
-
-
     </div>
     <div class="card-footer text-muted"></div>
 </div>
 
-<?php include("../../plates/footer.php");?>
+<?php include("../../plates/footer.php"); ?>
