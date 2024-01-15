@@ -1,4 +1,19 @@
-<?php include("../../plates/header.php");?>
+<?php
+
+include("../../plates/bd.php");
+
+$sentencia=$conexion->prepare("SELECT * FROM `tbl_banners`");
+$sentencia ->execute();
+$lista_banners = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
+print_r($lista_banners);
+
+include("../../plates/header.php");
+
+?>
+
+
+
+
 
 <div class="card">
     <div class="card-header">
