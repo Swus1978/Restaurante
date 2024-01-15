@@ -1,3 +1,7 @@
+<?php 
+$url_base="http://localhost:3000/admin";
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -26,17 +30,21 @@
                         >Administrador <span class="visually-hidden">(current)</span></a
                     >
 
-                    <a class="nav-item nav-link" href="#">Banners</a>
-                    <a class="nav-item nav-link" href="#">Colaboradores</a>
-                    <a class="nav-item nav-link" href="#">Testimonios</a>
-                    <a class="nav-item nav-link" href="#">Menu</a>
-                    <a class="nav-item nav-link" href="#">Comentarios</a>
-                    <a class="nav-item nav-link" href="#">Usuarios</a>
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>seccion/banners">Banners</a>
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>seccion/colaboradores">Colaboradores</a>
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>seccion/testimonios">Testimonios</a>
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>seccion/menu">Menu</a>
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>seccion/comentarios">Comentarios</a>
+                    <a class="nav-item nav-link" href="<?php echo $url_base;?>seccion/usuarios">Usuarios</a>
                     <a class="nav-item nav-link" href="#">Cerrar sesion</a>
                 </div>
             </nav>
         </header>
-        <main></main>
+        <main>
+        <section class="container">
+
+        </main>
+
         <footer>
             <!-- place footer here -->
         </footer>
