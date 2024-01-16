@@ -11,4 +11,4 @@ try {
 } catch (PDOException $error) {
     echo "Error de conexión: " . $error->getMessage();
 }
-?>
+

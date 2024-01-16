@@ -1,3 +1,12 @@
+<?php
+include("admin/plates/bd.php");
+
+$sentencia=$conexion->prepare("SELECT * FROM tbl_banners ORDER BY id DESC limit 1");
+$sentencia -> execute();
+$lista_banners = $sentencia -> fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -52,10 +61,19 @@
         </nav>
         <section id="inicio" class="container-fluid p-0">
             <div class="banner-img" style="position:relative; background:url('images/pngtree-summer-atmosphere-restaurant-supermarket-vegetable-psd-layered-promotion-background-image_159939.jpg') center/cover no-repeat; height:400px;">
-                <div class="banner-text" style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); text-align:center; color: #fff;">
-                    <h1>La Borincana</h1>
-                    <p>Restaurante del mejor sabor casero</p>
-                    <a href="#menu" class="btn btn-primary">Ver Menu</a>
+
+
+            <div class="banner-text" style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); text-align:center; color: #fff;">
+                <?php
+                foreach($lista_banners as $banner) {
+
+
+
+                ?>
+                <h1><?php echo $banner['titulo']; ?></h1>
+                    <p><?php echo $banner['descripcion']; ?></p>
+                    <a href="<?php echo $banner['link']; ?>" class="btn btn-primary">Ver Menu</a>
+                <?php } ?>
                 </div>
             </div>
         </section>
